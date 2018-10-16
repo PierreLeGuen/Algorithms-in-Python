@@ -28,8 +28,9 @@ class ListeCh_Simple():
         pos_actuel = 0
         courant = self.tete
         mp = Maillon(valeur)
-        if courant == None:
+        if courant == None or position == 0:
             self.tete=mp
+            mp.suiv = courant
         else:
             while courant.suiv and pos_actuel < position:
                 pos_actuel+=1
@@ -37,17 +38,39 @@ class ListeCh_Simple():
                 courant = courant.suiv
             courant_prec.suiv=mp
             mp.suiv=courant
-
+    def ajoutListeTrie(self,val):
+        courant = self.tete
+        ml= Maillon(val)
+        if courant.suiv == None or val < courant.val:
+            self.ajoutTete(val)
+        else:
+            while(val > courant.val) and courant.suiv:
+                courant_prec=courant
+                courant=courant.suiv
+            if courant.suiv==None:
+                courant.suiv=ml
+            else:
+                courant_prec.suiv=ml
+                ml.suiv=courant
+    def compterNbElem(self):
+        nbElem=0
+        i=0
+        courant = self.tete
+        while courant:
+            nbElem+=1
+            courant=courant.suiv
+        return nbElem
+            
         
 
 
-m = Maillon("5")
-
+m = Maillon(0)
 l = ListeCh_Simple(m)
-l.ajoutTete("1")
-#l.ajoutTete("2")
-l.ajoutFin("10")
-l.ajoutFin("20")
-l.ajoutFin("30")
-l.ajoutPos(2,"ajout")
+for i in range(0):
+    l.ajoutFin(i+1)
+
+#l.ajoutListeTrie(10)
+
+print(l.compterNbElem())
+
 l.affListeCh()
