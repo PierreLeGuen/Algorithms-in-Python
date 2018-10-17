@@ -6,6 +6,9 @@ class ArbreBinaire():
             return True
     def root(self):
         return self.racine
+    def affArbre(self):
+        pass
+        
 
 class Node():
     def __init__(self, valeur, ref_ss_droit=None, ref_ss_gauche=None):
@@ -15,13 +18,5 @@ class Node():
 
 def term():
     return None
-
-def affArbre(atree):
-    noeud_courant=atree.root()
-    if noeud_courant:
-        if noeud_courant.ref_ss_droit!=None:
-            noeud_courant=ref_ss_droit.racine
-            return ArbreBinaire.affArbre(no)
-                
 
 g = ArbreBinaire(Node(1 ,Node(0 ,term(), term()) ,term()))
