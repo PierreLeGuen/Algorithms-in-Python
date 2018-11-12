@@ -30,5 +30,4 @@ class Graphe:
 				
 g = Graphe(martrice_adj)
 print(g.isMatNotOriented())
-print(g.createListAdj())
-
+print(g.createListAdj()[0])
